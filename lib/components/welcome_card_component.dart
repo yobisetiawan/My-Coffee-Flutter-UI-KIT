@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/routes.dart';
+
+class WelcomeCardComponent extends StatelessWidget {
+  final String title; // Add a title property
+  final String imagePath; // Add an imagePath property
+
+  const WelcomeCardComponent({
+    super.key,
+    required this.title, // Mark as required
+    required this.imagePath, // Mark as required
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: 400,
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Color(0xFFDDDDDD), // Light gray border
+              width: 1, // Border width
+            ),
+          ),
+          child: Column(
+            children: [
+              Center(
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(height: 20),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  20,
+                ), // Adjust the radius as needed
+                child: Image.asset(
+                  imagePath,
+                  width: 250,
+                  height: 250,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned.fill(
+          child: Material(
+            color: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: () {
+                Get.toNamed(AppRoutes.home);
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
