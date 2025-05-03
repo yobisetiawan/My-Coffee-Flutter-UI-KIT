@@ -17,9 +17,7 @@ class WelcomePage extends StatelessWidget {
             width: 200,
             height: 200,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(
-                100,
-              ), // Adjust the radius as needed
+              borderRadius: BorderRadius.circular(100),
               child: Image.asset(
                 "assets/images/logo.png",
                 fit: BoxFit.cover,

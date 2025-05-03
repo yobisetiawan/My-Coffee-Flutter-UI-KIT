@@ -1,18 +1,24 @@
 import 'package:get/get.dart';
 import 'package:myapp/pages/auth/register/page.dart';
+import 'package:myapp/pages/first_banner/page.dart';
+import 'package:myapp/pages/news/page.dart';
+import 'package:myapp/pages/notifications/page.dart';
 import 'package:myapp/pages/onboarding/allow_location_page.dart';
 import 'package:myapp/pages/onboarding/allow_notification_page.dart';
 import 'package:myapp/pages/onboarding/page.dart';
 import 'pages/welcome/page.dart';
-import 'pages/home/page.dart';
+import 'pages/main/page.dart';
 
 class AppRoutes {
   static const welcome = '/';
   static const onboarding = '/onboarding';
-  static const allowNotification = '/allow_notification';
-  static const allowLocation = '/allow_location';
+  static const allowNotification = '/allow-notification';
+  static const allowLocation = '/allow-location';
   static const register = '/register';
-  static const home = '/home';
+  static const firstBanner = '/first-banner';
+  static const main = '/main';
+  static const news = '/news';
+  static const notifications = '/notifications';
 }
 
 class AppPages {
@@ -28,6 +34,12 @@ class AppPages {
       page: () => const AllowLocationPage(),
     ),
     GetPage(name: AppRoutes.register, page: () => RegisterPage()),
-    GetPage(name: AppRoutes.home, page: () => const HomePage()),
+    GetPage(name: AppRoutes.firstBanner, page: () => const FirstBanner()),
+    GetPage(name: AppRoutes.main, page: () => const MainPage()),
+    GetPage(name: AppRoutes.news, page: () => const NewsPage()),
+    GetPage(
+      name: AppRoutes.notifications,
+      page: () => const NotificationPage(),
+    ),
   ];
 }

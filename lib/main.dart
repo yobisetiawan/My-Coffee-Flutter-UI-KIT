@@ -18,6 +18,7 @@ void main() async {
 
   Get.put(MenuAppController());
   Get.put(ProductController());
+
   runApp(const MyApp());
 }
 

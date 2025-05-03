@@ -38,7 +38,6 @@ class RegisterPage extends StatelessWidget {
               controller: controller.phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
                 labelText: 'Nomor Handphone',
                 hintText: 'Contoh: 0812-3456-7890',
               ),
@@ -51,7 +50,7 @@ class RegisterPage extends StatelessWidget {
                   onPressed:
                       controller.isButtonEnabled.value
                           ? () {
-                            Get.offNamed(AppRoutes.home);
+                            Get.offNamed(AppRoutes.main);
                           }
                           : null, // Disable button when `isButtonEnabled` is false
                   style: ElevatedButton.styleFrom(
