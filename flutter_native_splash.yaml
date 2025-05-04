@@ -22,7 +22,7 @@ flutter_native_splash:
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
-  image: "assets/images/logo.png"
+  image: "assets/images/splash.png"
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
@@ -60,10 +60,10 @@ flutter_native_splash:
     # 768 pixels in diameter.  To fit a 1152x1152 image within a circle with a 768 diameter, simply 
     # ensure that the most important design elements of your image are placed within a circular area
     # with a 768 diameter at the center of the 1152x1152 canvas.
-    image: "assets/images/logo.png"
+    image: "assets/images/splash.png"
 
     # Splash screen background color.
-    color: "#8b4e32"
+    color: "#ffffff"
 
     # App icon background color.
     #icon_background_color: "#111111"
@@ -86,15 +86,15 @@ flutter_native_splash:
 
   # Platform specific images can be specified with the following parameters, which will override
   # the respective parameter.  You may specify all, selected, or none of these parameters:
-  color_android: "#8b4e32"
-  color_dark_android: "#8b4e32"
-  color_ios: "#8b4e32"
+  color_android: "#ffffff"
+  color_dark_android: "#ffffff"
+  color_ios: "#ffffff"
   #color_dark_ios: "#042a49"
   #color_web: "#42a5f5"
   #color_dark_web: "#042a49"
-  image_android: "assets/images/logo.png"
-  image_dark_android: "assets/images/logo.png"
-  image_ios: "assets/images/logo.png"
+  image_android: "assets/images/splash.png"
+  image_dark_android: "assets/images/splash.png"
+  image_ios: "assets/images/splash.png"
   #image_dark_ios: assets/splash-invert-ios.png
   #image_web: assets/splash-web.gif
   #image_dark_web: assets/splash-invert-web.gif

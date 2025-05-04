@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/data_empty_component.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});
@@ -15,12 +16,13 @@ class OrderPage extends StatelessWidget {
             child: Text('Order History', style: TextStyle(fontSize: 20)),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                height: 2000,
-                width: double.infinity, 
-                child: Text('Test'),
+            child: SizedBox(
+              child: Column(
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Center vertically
+                crossAxisAlignment:
+                    CrossAxisAlignment.center, // Center horizontally
+                children: const [DataEmptyComponent(), SizedBox(height: 100)],
               ),
             ),
           ),

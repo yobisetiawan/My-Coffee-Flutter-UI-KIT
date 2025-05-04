@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:myapp/pages/auth/register/page.dart';
 import 'package:myapp/pages/first_banner/page.dart';
+import 'package:myapp/pages/main/profile/edit/page.dart';
+import 'package:myapp/pages/main/profile/edit_pin/page.dart';
+import 'package:myapp/pages/main/profile/refferall/page.dart';
 import 'package:myapp/pages/news/page.dart';
 import 'package:myapp/pages/notifications/page.dart';
 import 'package:myapp/pages/onboarding/allow_location_page.dart';
@@ -19,6 +22,9 @@ class AppRoutes {
   static const main = '/main';
   static const news = '/news';
   static const notifications = '/notifications';
+  static const refferal = '/profile-refferal';
+  static const editProfile = '/edit-profile';
+  static const editPin = '/edit-pin';
 }
 
 class AppPages {
@@ -41,5 +47,8 @@ class AppPages {
       name: AppRoutes.notifications,
       page: () => const NotificationPage(),
     ),
+    GetPage(name: AppRoutes.refferal, page: () => const RefferalPage()),
+    GetPage(name: AppRoutes.editProfile, page: () => const EditProfilePage()),
+    GetPage(name: AppRoutes.editPin, page: () => const EditPinPage()),
   ];
 }

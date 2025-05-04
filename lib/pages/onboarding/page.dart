@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/config/app_color.dart';
 import 'controller.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -13,7 +14,6 @@ class OnboardingPage extends StatelessWidget {
       backgroundColor: Colors.brown,
       body: Stack(
         children: [
-          // Fullscreen PageView for slides
           PageView.builder(
             controller: controller.pageController,
             itemCount: controller.slides.length,
@@ -25,7 +25,7 @@ class OnboardingPage extends StatelessWidget {
                 children: [
                   // Background image
                   Image.asset(
-                    controller.slides[index],
+                    controller.slides[index].image,
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
@@ -35,6 +35,31 @@ class OnboardingPage extends StatelessWidget {
                     color: Colors.black.withValues(alpha: 0.5),
                     width: double.infinity,
                     height: double.infinity,
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          controller.slides[index].title,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          controller.slides[index].description,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Colors.grey.shade400,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               );
@@ -58,7 +83,7 @@ class OnboardingPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color:
                           controller.currentPage.value == index
-                              ? Colors.brown
+                              ? Colors.white
                               : Colors.grey,
                       borderRadius: BorderRadius.circular(4),
                     ),
@@ -89,8 +114,8 @@ class OnboardingPage extends StatelessWidget {
                             key: const ValueKey('RegisterButton'),
                             onPressed: controller.nextPage,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.brown,
-                              foregroundColor: Colors.white,
+                              backgroundColor: AppColor.primary,
+                              foregroundColor: Colors.black,
                               padding: const EdgeInsets.symmetric(vertical: 20),
                             ),
                             child: const Text(
@@ -103,14 +128,14 @@ class OnboardingPage extends StatelessWidget {
                           key: const ValueKey('ArrowButton'),
                           onPressed: controller.nextPage,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.brown,
-                            foregroundColor: Colors.white,
+                            backgroundColor: AppColor.primary,
+                            foregroundColor: Colors.black,
                             padding: const EdgeInsets.all(23),
                             shape: const CircleBorder(),
                           ),
                           child: const Icon(
                             Icons.arrow_forward,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
               ),

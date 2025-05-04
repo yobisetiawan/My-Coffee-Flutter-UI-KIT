@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/routes.dart';
 
 class AllowNotificationPage extends StatelessWidget {
@@ -54,20 +55,13 @@ class AllowNotificationPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.allowLocation);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                ),
-                child: const Text('Continue', style: TextStyle(fontSize: 16)),
-              ),
+
+            SizedBox(height: 30),
+            BtnComponent(
+              text: 'Continue',
+              onPressed: () {
+                Get.toNamed(AppRoutes.allowLocation);
+              },
             ),
           ],
         ),

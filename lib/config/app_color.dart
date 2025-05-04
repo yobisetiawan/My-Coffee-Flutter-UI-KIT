@@ -4,4 +4,5 @@ class AppColor {
   static const primary = Color(0xFFECC278);
   static const secondary = Color(0xFF7e5f42);
   static const bgMenu = Color(0xFF34030a);
+  static const danger = Color(0xFFc62827);
 }

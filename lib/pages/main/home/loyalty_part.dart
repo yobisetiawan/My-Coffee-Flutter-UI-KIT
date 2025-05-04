@@ -19,6 +19,11 @@ class LoyaltyPart extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColor.secondary,
               borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg/bg1.png'),
+                repeat: ImageRepeat.repeat, // Repeat the background image
+                fit: BoxFit.none, // Prevent scaling of the image
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,20 +44,24 @@ class LoyaltyPart extends StatelessWidget {
                           color: Colors.white,
                           size: 36,
                         ),
-                        SizedBox(width: 5,),
+                        SizedBox(width: 5),
                         Text(
                           "0",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
-                            fontSize: 30
+                            fontSize: 30,
                           ),
                         ),
                       ],
                     ),
                   ],
                 ),
-                Icon(Icons.arrow_circle_right_outlined, color: Colors.white, size: 36,),
+                Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                  size: 36,
+                ),
               ],
             ),
           ),
@@ -63,14 +72,14 @@ class LoyaltyPart extends StatelessWidget {
                 Icon(Icons.beenhere_sharp, color: Colors.white),
                 SizedBox(width: 4),
                 Text(
-                  'Teman My Cofee',
+                  'Teman My Coffee',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Spacer(),
-                Text('See Benefit', style: TextStyle(color: Colors.white)),
+                Text("See Benefit's", style: TextStyle(color: Colors.white)),
                 SizedBox(width: 4),
                 Icon(Icons.arrow_forward_ios, size: 14, color: Colors.white),
               ],

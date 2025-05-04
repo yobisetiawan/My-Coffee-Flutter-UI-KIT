@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/data_empty_component.dart';
 import 'package:myapp/config/app_color.dart';
 import 'package:myapp/pages/main/home/loyalty_part.dart';
 import 'package:myapp/pages/main/home/title_part.dart';
@@ -22,9 +23,12 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 5),
               LoyaltyPart(),
               SizedBox(height: 30),
-              TitlePart(title: 'Berita Terbaru', onTap: (){
-                Get.toNamed(AppRoutes.news);
-              },),
+              TitlePart(
+                title: 'Berita Terbaru',
+                onTap: () {
+                  Get.toNamed(AppRoutes.news);
+                },
+              ),
               SizedBox(height: 10),
               Container(
                 height: 200,
@@ -35,7 +39,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              TitlePart(title: 'Last Order') ,
+              TitlePart(title: 'Last Order'),
+              DataEmptyComponent(),
+              SizedBox(height: 140),
             ],
           ),
         ),

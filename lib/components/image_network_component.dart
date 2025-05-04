@@ -12,9 +12,8 @@ class ImageNetworkComponent extends StatelessWidget {
       fit: BoxFit.cover,
       placeholder:
           (context, url) => Center(
-            child: Container(
-              height: 100,
-              color: Colors.grey,
+            child: SizedBox(
+              height: 100, 
               child: Center(
                 child: SizedBox(
                   height: 20,

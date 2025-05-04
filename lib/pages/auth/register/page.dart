@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/controllers/logo_component.dart';
 import 'controller.dart';
 import 'package:myapp/routes.dart';
@@ -33,7 +34,7 @@ class RegisterPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-            // Phone number text field with masking
+             
             TextField(
               controller: controller.phoneController,
               keyboardType: TextInputType.phone,
@@ -42,26 +43,18 @@ class RegisterPage extends StatelessWidget {
                 hintText: 'Contoh: 0812-3456-7890',
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             SizedBox(
               width: double.infinity,
               child: Obx(
-                () => ElevatedButton(
+                () => BtnComponent(
+                  text: 'Sign in / Daftar',
                   onPressed:
                       controller.isButtonEnabled.value
                           ? () {
                             Get.offNamed(AppRoutes.main);
                           }
-                          : null, // Disable button when `isButtonEnabled` is false
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                  ),
-                  child: const Text(
-                    'Sign in / Daftar',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                          : null,
                 ),
               ),
             ),
