@@ -103,9 +103,7 @@ class MainPage extends StatelessWidget {
                   top: 0,
                   left: MediaQuery.of(context).size.width / 2 - 30,
                   child: InkWell(
-                    onTap: () {
-                      print('Test');
-                    },
+                    onTap: () {},
                     child: Container(
                       width: 60,
                       height: 60,

@@ -4,11 +4,14 @@ import 'package:myapp/pages/first_banner/page.dart';
 import 'package:myapp/pages/main/profile/edit/page.dart';
 import 'package:myapp/pages/main/profile/edit_pin/page.dart';
 import 'package:myapp/pages/main/profile/refferall/page.dart';
+import 'package:myapp/pages/membership_tier/page.dart';
 import 'package:myapp/pages/news/page.dart';
+import 'package:myapp/pages/notifications/details/page.dart';
 import 'package:myapp/pages/notifications/page.dart';
 import 'package:myapp/pages/onboarding/allow_location_page.dart';
 import 'package:myapp/pages/onboarding/allow_notification_page.dart';
 import 'package:myapp/pages/onboarding/page.dart';
+import 'package:myapp/pages/tier_teman_coffee/page.dart';
 import 'pages/welcome/page.dart';
 import 'pages/main/page.dart';
 
@@ -22,9 +25,12 @@ class AppRoutes {
   static const main = '/main';
   static const news = '/news';
   static const notifications = '/notifications';
+  static const notificationDetails = '/notification-details';
   static const refferal = '/profile-refferal';
   static const editProfile = '/edit-profile';
   static const editPin = '/edit-pin';
+  static const membershipTier = '/membership-tier';
+  static const tierTemanCoffeePage = '/tier-teman-coffee';
 }
 
 class AppPages {
@@ -50,5 +56,17 @@ class AppPages {
     GetPage(name: AppRoutes.refferal, page: () => const RefferalPage()),
     GetPage(name: AppRoutes.editProfile, page: () => const EditProfilePage()),
     GetPage(name: AppRoutes.editPin, page: () => const EditPinPage()),
+    GetPage(
+      name: AppRoutes.membershipTier,
+      page: () => const MembershipTierPage(),
+    ),
+    GetPage(
+      name: AppRoutes.tierTemanCoffeePage,
+      page: () => const TierTemanCoffeePage(),
+    ),
+    GetPage(
+      name: AppRoutes.notificationDetails,
+      page: () => const NotificationDetailsPage(),
+    ),
   ];
 }

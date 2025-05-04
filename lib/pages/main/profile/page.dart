@@ -49,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                       Divider(),
                       LabelValueComponent(
                         label: 'Tanggal Lahir',
-                        value: '10 Jan 1990',
+                        value: '10 Jan 2000',
                       ),
                       Divider(),
                       LabelValueComponent(
