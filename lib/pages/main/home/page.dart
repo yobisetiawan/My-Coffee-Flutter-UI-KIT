@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/data_empty_component.dart';
+import 'package:myapp/components/image_network_component.dart';
 import 'package:myapp/config/app_color.dart';
 import 'package:myapp/routes.dart';
 import 'controller.dart';
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 10),
 
               Container(
-                height: 200,
+                height: 220,
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   children: [
@@ -49,10 +50,8 @@ class HomePage extends StatelessWidget {
                             ), // Add space between images
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                ctx.images[index],
-                                fit: BoxFit.cover,
-                                width: double.infinity,
+                              child: ImageNetworkComponent(
+                                url: ctx.images[index],
                               ),
                             ),
                           );
