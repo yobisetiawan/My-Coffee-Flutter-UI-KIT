@@ -9,7 +9,7 @@ class WelcomeController extends GetxController {
   }
 
   void goTo() {
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       Get.toNamed(AppRoutes.onboarding);
     });
   }

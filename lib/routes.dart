@@ -55,7 +55,7 @@ class AppPages {
     ),
     GetPage(name: AppRoutes.refferal, page: () => const RefferalPage()),
     GetPage(name: AppRoutes.editProfile, page: () => const EditProfilePage()),
-    GetPage(name: AppRoutes.editPin, page: () => const EditPinPage()),
+    GetPage(name: AppRoutes.editPin, page: () => EditPinPage()),
     GetPage(
       name: AppRoutes.membershipTier,
       page: () => const MembershipTierPage(),

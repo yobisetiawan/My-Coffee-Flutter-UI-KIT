@@ -12,7 +12,7 @@ class DataEmptyComponent extends StatelessWidget {
           height: 250,
           child: SvgPicture.asset('assets/images/svg/data-empty.svg'),
         ),
-        Text('Data kosong', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color:  Colors.grey.shade500)),
+        Text('Data tidak tersedia', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color:  Colors.grey.shade500)),
       ],
     );
   }

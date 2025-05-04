@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/image_network_component.dart';
+import 'package:myapp/components/pin_component.dart';
+import 'package:myapp/config/app_color.dart';
 
 class EditPinPage extends StatelessWidget {
   const EditPinPage({super.key});
@@ -7,25 +8,22 @@ class EditPinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Edit PIN')),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: 20, right: 20),
+      backgroundColor: AppColor.bg,
+      appBar: AppBar(title: Text('Edit PIN'), backgroundColor: AppColor.bg),
+      body: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 180,
-                  child: ImageNetworkComponent(
-                    url: "https://placehold.co/400x300.png?text=Banner",
-                  ),
-                ),
-              ),
-            ),
-        
+            Spacer(),
+            Icon(Icons.lock, size: 48, color: Colors.amber),
+            SizedBox(height: 20),
+            Text('Masukan PIN Sekarang Anda', style: TextStyle(fontSize: 18)),
+            SizedBox(height: 24),
+            SizedBox(height: 500, child: PinComponent()),
+            Spacer(),
           ],
         ),
       ),
