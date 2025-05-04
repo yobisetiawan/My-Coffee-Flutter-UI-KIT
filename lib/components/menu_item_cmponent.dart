@@ -19,33 +19,34 @@ class MenuItemComponent extends StatelessWidget {
       return InkWell(
         onTap: onTap,
         child: Container(
-          width: 30,
+          width: 50, // Set a fixed width for the parent container
           height: 50,
-          margin: EdgeInsets.only(left: 20, right: 20),
+          margin: const EdgeInsets.only(left: 20, right: 20),
           child: Stack(
             children: [
-              Positioned(
-                top: 3,
-                left: 7,
-                right: 7,
-                child:
-                    isActive
-                        ? Container(
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: AppColor.primary, // Set color to amber
-                            borderRadius: BorderRadius.circular(
-                              5,
-                            ), // Rounded corners
-                          ),
-                        )
-                        : SizedBox(),
+              // Animated indicator
+              Align(
+                alignment: Alignment.topCenter,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 400), // Animation duration
+                  height: 4, // Fixed height for the indicator
+                  width: isActive ? 25 : 0, // Animate width
+                  curve: Curves.easeInOut, // Smooth animation curve
+                  decoration: BoxDecoration(
+                    color: isActive ? AppColor.primary : Colors.transparent, // Animate color
+                    borderRadius: BorderRadius.circular(5), // Rounded corners
+                  ),
+                ),
               ),
+              // Icon
               Align(
                 alignment: Alignment.center, // Center the icon
                 child: Container(
-                  margin: EdgeInsets.only(top: 13),
-                  child: Icon(icon, color: AppColor.primary,)
+                  margin: const EdgeInsets.only(top: 5),
+                  child: Icon(
+                    icon,
+                    color: isActive ? AppColor.primary : Colors.grey, // Change icon color
+                  ),
                 ),
               ),
             ],
@@ -54,6 +55,6 @@ class MenuItemComponent extends StatelessWidget {
       );
     }
 
-    return SizedBox(width: 30, height: 50);
+    return const SizedBox(width: 30, height: 50);
   }
 }

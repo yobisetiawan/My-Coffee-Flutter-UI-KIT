@@ -16,7 +16,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ctx = Get.put(HomeController());
     return SafeArea(
-      child: SizedBox(
+      child: Container(
+        color: AppColor.bg,
         height: double.infinity,
         child: SingleChildScrollView(
           child: Column(
@@ -41,6 +42,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: PageView.builder(
+                        controller: ctx.pageController,
                         onPageChanged: ctx.onPageChanged,
                         itemCount: ctx.images.length,
                         itemBuilder: (context, index) {

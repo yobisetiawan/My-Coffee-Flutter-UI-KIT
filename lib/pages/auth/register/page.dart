@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
+import 'package:myapp/config/app_color.dart';
 import 'package:myapp/controllers/logo_component.dart';
 import 'controller.dart';
 import 'package:myapp/routes.dart';
@@ -13,7 +14,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.bg,
       body: Container(
         padding: EdgeInsets.only(left: 30, right: 30),
         width: double.infinity,
@@ -34,7 +35,7 @@ class RegisterPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-             
+
             TextField(
               controller: controller.phoneController,
               keyboardType: TextInputType.phone,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
+import 'package:myapp/config/app_color.dart';
 import 'package:myapp/routes.dart';
 
 class AllowLocationPage extends StatelessWidget {
@@ -9,14 +10,14 @@ class AllowLocationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.bg,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0, // Removes the shadow
+        backgroundColor: AppColor.bg,
+        elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Get.back(); // Navigates to the previous page
+            Get.back();
           },
         ),
       ),
@@ -56,9 +57,12 @@ class AllowLocationPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            BtnComponent(text: 'Continue', onPressed: () {
-                 Get.offNamed(AppRoutes.register);
-            }),
+            BtnComponent(
+              text: 'Continue',
+              onPressed: () {
+                Get.offNamed(AppRoutes.register);
+              },
+            ),
           ],
         ),
       ),

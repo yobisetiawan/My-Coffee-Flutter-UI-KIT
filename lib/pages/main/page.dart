@@ -15,23 +15,31 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ctx = Get.put(MainController());
 
+    // Map activeMenu values to corresponding pages
+    final Map<String, Widget> pages = {
+      'home': const HomePage(),
+      'voucher': const VoucherPage(),
+      'order_history': const OrderPage(),
+      'profile': const ProfilePage(),
+    };
+
     return Scaffold(
+      backgroundColor: AppColor.bg,
       body: Stack(
         children: [
-          //setup for home =>  HomePage(), profile= > ProfilePage(), voucher => VoucherPage(), order_history =>` OrderHistory()
-          // Main content area
-          Obx(() {
-            switch (ctx.activeMenu.value) {
-              case 'profile':
-                return ProfilePage(); // Replace with ProfilePage()
-              case 'voucher':
-                return VoucherPage(); // Replace with VoucherPage()
-              case 'order_history':
-                return OrderPage(); // Replace with OrderHistoryPage()
-              default:
-                return HomePage(); // Default to HomePage
-            }
-          }),
+          // AnimatedSwitcher for smooth transitions
+          Obx(
+            () => AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200), // Animation duration
+              transitionBuilder: (child, animation) {
+                return FadeTransition(
+                  opacity: animation, // Fade animation
+                  child: child,
+                );
+              },
+              child: pages[ctx.activeMenu.value] ?? const HomePage(),
+            ),
+          ),
           Positioned(
             bottom: 0,
             left: 0,
@@ -51,7 +59,7 @@ class MainPage extends StatelessWidget {
                     color: AppColor.bgMenu,
                     //border: Border.all(color: Colors.white, width: 2), // Add border
                     borderRadius: BorderRadius.circular(
-                      10,
+                      20,
                     ), // Optional: Rounded corners
                   ),
                   child: Obx(
@@ -62,7 +70,6 @@ class MainPage extends StatelessWidget {
                           icon: Icons.home,
                           isActive: ctx.activeMenu.value == 'home',
                           onTap: () {
-                            print('home clicked');
                             ctx.setActiveMenu('home');
                           },
                         ),

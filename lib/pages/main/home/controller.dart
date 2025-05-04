@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:async';
 
 class HomeController extends GetxController {
   final currentPage = 0.obs; // Reactive variable for the current page
@@ -10,7 +12,46 @@ class HomeController extends GetxController {
     'https://placehold.co/400x300.png?text=Banner5',
   ];
 
+  late final PageController pageController;
+  Timer? _timer;
+
+  @override
+  void onInit() {
+    super.onInit();
+    pageController = PageController();
+    _startAutoPlay();
+  }
+
   void onPageChanged(int index) {
     currentPage.value = index; // Update the current page index
+     _restartAutoPlay();
+  }
+
+  void _startAutoPlay() {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      if (pageController.hasClients) {
+        int nextPage = (currentPage.value + 1) % images.length;
+        pageController.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+        currentPage.value = nextPage;
+      }
+    });
+  }
+
+
+  void _restartAutoPlay() {
+    _timer?.cancel(); // Cancel the current timer
+    _startAutoPlay(); // Restart the timer
+  }
+ 
+
+  @override
+  void onClose() {
+    _timer?.cancel(); // Cancel the timer when the controller is disposed
+    pageController.dispose();
+    super.onClose();
   }
 }
