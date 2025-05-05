@@ -14,8 +14,8 @@ class WelcomePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SizedBox(
-            width: 200,
-            height: 200,
+            width: 180,
+            height: 180,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: Image.asset(

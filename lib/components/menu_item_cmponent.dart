@@ -19,7 +19,7 @@ class MenuItemComponent extends StatelessWidget {
       return InkWell(
         onTap: onTap,
         child: Container(
-          width: 50, // Set a fixed width for the parent container
+          width: 30, // Set a fixed width for the parent container
           height: 50,
           margin: const EdgeInsets.only(left: 20, right: 20),
           child: Stack(

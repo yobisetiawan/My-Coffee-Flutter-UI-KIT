@@ -44,10 +44,10 @@ class NewsPage extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: .2), // shadow color
-                    spreadRadius: 2, // how wide the shadow spreads
+                    color: Colors.black.withValues(alpha: .1), // shadow color
+                    spreadRadius: 1, // how wide the shadow spreads
                     blurRadius: 6, // how blurry the shadow is
-                    offset: Offset(0, 3), // changes position of shadow: (x, y)
+                    offset: Offset(0, 1), // changes position of shadow: (x, y)
                   ),
                 ],
               ),

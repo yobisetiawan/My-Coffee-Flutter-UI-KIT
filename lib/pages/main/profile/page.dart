@@ -93,7 +93,7 @@ class ProfilePage extends StatelessWidget {
                           textColor: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 120),
                     ],
                   ),
                 ),

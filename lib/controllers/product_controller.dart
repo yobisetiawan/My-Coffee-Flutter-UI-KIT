@@ -22,7 +22,8 @@ class ProductController extends GetxController {
       // Convert JSON data to a list of Product objects
       products.value = jsonData.map((item) => Product.fromJson(item)).toList();
     } catch (e) {
-      //print('Error loading products: $e');
+      // ignore: avoid_print
+      print('Error loading products: $e');
     }
   }
 }

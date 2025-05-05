@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/config/app_color.dart';
+import 'package:myapp/pages/auth/register/page.dart';
 import 'package:myapp/routes.dart';
 
 class AllowLocationPage extends StatelessWidget {
@@ -60,7 +61,12 @@ class AllowLocationPage extends StatelessWidget {
             BtnComponent(
               text: 'Continue',
               onPressed: () {
-                Get.offNamed(AppRoutes.register);
+                Get.offAll(
+                  () => RegisterPage(),
+                  routeName: AppRoutes.register,
+                  transition: Transition.rightToLeft,
+                  duration: Duration(milliseconds: 600),
+                );
               },
             ),
           ],

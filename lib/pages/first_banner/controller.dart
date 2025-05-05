@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:myapp/pages/main/page.dart';
 import 'package:myapp/routes.dart';
 
 class FirstBannerController extends GetxController {
@@ -10,7 +11,12 @@ class FirstBannerController extends GetxController {
 
   void goTo() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.offAllNamed(AppRoutes.main);
+      Get.offAll(
+        () => MainPage(),
+        routeName: AppRoutes.main,
+        transition: Transition.rightToLeft,
+        duration: Duration(milliseconds: 600),
+      );
     });
   }
 }
