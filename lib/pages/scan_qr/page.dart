@@ -1,23 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:myapp/components/btn_component.dart';
+import 'package:myapp/pages/scan_qr/controller.dart';
 
 class ScanQRPage extends StatelessWidget {
   const ScanQRPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final MobileScannerController cameraController = MobileScannerController();
+    final ctr = Get.put(ScanQRController());
+
     return Scaffold(
-      body: Stack(
-        children: [
-          MobileScanner(
-            // allowDuplicates: false,
-            onDetect: (barcode) {
-              // ignore: avoid_print
-              print(barcode);
-            },
-          ),
-          const QRScannerOverlay(),
-        ],
+      body: SafeArea(
+        child: Obx(() {
+          if (ctr.result.value != "") {
+            return Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.white,
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Result : ${ctr.result.value}',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(height: 20),
+                  BtnComponent(
+                    text: 'Scan Lagi',
+                    onPressed: () {
+                      ctr.setActiveMenu("");
+                    },
+                  ),
+                ],
+              ),
+            );
+          }
+          return Stack(
+            children: [
+              MobileScanner(
+                controller: cameraController,
+                onDetect: (barcode) {
+                  ctr.setActiveMenu(barcode.barcodes.first.rawValue.toString());
+                },
+              ),
+              const QRScannerOverlay(),
+              Positioned(
+                top: 30,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Icon(Icons.arrow_back, color: Colors.white),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          cameraController.toggleTorch();
+                        },
+                        child: Icon(Icons.flash_on, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }
@@ -28,92 +89,15 @@ class QRScannerOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, constraints) {
-        final width = constraints.maxWidth * 0.8;
-        final height = width;
-        final top = (constraints.maxHeight - height) / 2;
-        final left = (constraints.maxWidth - width) / 2;
-
-        return Stack(
-          children: [
-            // Dark overlay with transparent scan area
-            ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                Colors.black.withValues(alpha: .6),
-                BlendMode.srcOut,
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      backgroundBlendMode: BlendMode.dstOut,
-                    ),
-                  ),
-                  Positioned(
-                    left: left,
-                    top: top,
-                    child: Container(
-                      width: width,
-                      height: height,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Red corners
-            Positioned(
-              left: left,
-              top: top,
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: CustomPaint(painter: BorderPainter()),
-              ),
-            ),
-          ],
-        );
-      },
+    return Container(
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/bg/bg2.png'),
+          repeat: ImageRepeat.noRepeat,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
-}
-
-class BorderPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint =
-        Paint()
-          ..color = Colors.red
-          ..strokeWidth = 4
-          ..style = PaintingStyle.stroke;
-
-    final radius = 20.0;
-    final length = 30.0;
-
-    Path path =
-        Path()
-          ..moveTo(0, radius)
-          ..arcToPoint(Offset(radius, 0), radius: Radius.circular(radius))
-          ..moveTo(0, length)
-          ..lineTo(0, 0)
-          ..lineTo(length, 0)
-          ..moveTo(size.width - length, 0)
-          ..lineTo(size.width, 0)
-          ..lineTo(size.width, length)
-          ..moveTo(size.width, size.height - length)
-          ..lineTo(size.width, size.height)
-          ..lineTo(size.width - length, size.height)
-          ..moveTo(length, size.height)
-          ..lineTo(0, size.height)
-          ..lineTo(0, size.height - length);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
