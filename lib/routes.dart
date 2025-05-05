@@ -38,7 +38,7 @@ class AppRoutes {
   static const membershipTier = '/membership-tier';
   static const tierTemanCoffeePage = '/tier-teman-coffee';
   static const pointHistory = '/point-history';
-  static const reedemDetails = '/reedem-details';
+  static const redeemDetails = '/redeem-details';
   static const voucherDetails = '/voucher-details';
   static const scanQR = '/scan-qr';
 }
@@ -81,7 +81,7 @@ class AppPages {
     GetPage(name: AppRoutes.pointHistory, page: () => const PointHistoryPage()),
     GetPage(name: AppRoutes.newsDetails, page: () => const NewsDetailPage()),
     GetPage(
-      name: AppRoutes.reedemDetails,
+      name: AppRoutes.redeemDetails,
       page: () => const RedeemDetailsPage(),
     ),
     GetPage(

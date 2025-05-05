@@ -26,7 +26,7 @@ class RedeemVoucherTab extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               Get.toNamed(
-                AppRoutes.reedemDetails,
+                AppRoutes.redeemDetails,
                 arguments: {'imageUrl': images[index]},
               );
             },

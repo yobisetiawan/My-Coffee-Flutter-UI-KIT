@@ -170,7 +170,7 @@ class RedeemDetailsPage extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         margin: EdgeInsets.all(20),
-        child: BtnComponent(text: 'Reedem', onPressed: () {}),
+        child: BtnComponent(text: 'Redeem', onPressed: () {}),
       ),
     );
   }
