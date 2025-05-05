@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/components/back_btn_component.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/components/image_network_component.dart';
-import 'package:myapp/components/numbered_list_component.dart';
-import 'package:myapp/components/voucer_card_component.dart';
 
 class NewsDetailPage extends StatelessWidget {
   const NewsDetailPage({super.key});

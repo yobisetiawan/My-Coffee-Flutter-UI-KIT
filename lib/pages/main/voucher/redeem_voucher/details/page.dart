@@ -4,8 +4,8 @@ import 'package:myapp/components/image_network_component.dart';
 import 'package:myapp/components/numbered_list_component.dart';
 import 'package:myapp/components/voucer_card_component.dart';
 
-class NotificationDetailsPage extends StatelessWidget {
-  const NotificationDetailsPage({super.key});
+class RedeemDetailsPage extends StatelessWidget {
+  const RedeemDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +85,8 @@ class NotificationDetailsPage extends StatelessWidget {
                           margin: EdgeInsets.only(left: 30),
                           child: NumberedListComponent(
                             strings: [
-                              'Sudah mendaftar sebagai member My Coffee melalui aplikasi My Coffee',
-                              'Dapat digunakan di seluruh store My Coffee',
+                              'Sudah mendaftar sebagai member MyCoffee Coffee melalui aplikasi MyCoffee Coffee',
+                              'Dapat digunakan di seluruh store MyCoffee Coffee',
                             ],
                           ),
                         ),
@@ -113,7 +113,7 @@ class NotificationDetailsPage extends StatelessWidget {
                           child: NumberedListComponent(
                             strings: [
                               'Sudah mendaftar sebagai member My Coffee melalui aplikasi My Coffee',
-                              'Dapat digunakan di seluruh store My Coffee ',
+                              'Dapat digunakan di seluruh store My Coffee',
                             ],
                           ),
                         ),

@@ -9,10 +9,22 @@ class RedeemCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.only(top: 20, left: 20, right: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Colors.white, // border color
+          width: 3, // border width
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: .1), // shadow color
+            spreadRadius: 1, // how wide the shadow spreads
+            blurRadius: 6, // how blurry the shadow is
+            offset: Offset(0, 1), // changes position of shadow: (x, y)
+          ),
+        ],
       ),
       child: Column(
         children: [
@@ -21,8 +33,13 @@ class RedeemCardComponent extends StatelessWidget {
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             ),
-            child: ImageNetworkComponent(
-              url: "https://placehold.co/500x200.png",
+            child: SizedBox(
+              height: 150,
+              width: double.infinity,
+              child: ImageNetworkComponent(
+                url:
+                    "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              ),
             ),
           ),
           Padding(
@@ -37,8 +54,12 @@ class RedeemCardComponent extends StatelessWidget {
                 ),
                 SizedBox(width: 30),
                 Text(
-                  "0",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26, color: AppColor.primary),
+                  "1",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    color: AppColor.primary,
+                  ),
                 ),
                 SizedBox(width: 3),
                 Text('Point'),

@@ -8,7 +8,7 @@ class RedeemVoucherTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(children: [RedeemCardComponent()]),
+      child: ListView(children: [RedeemCardComponent(), RedeemCardComponent()]),
     );
   }
 }

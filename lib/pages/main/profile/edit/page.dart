@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/image_network_component.dart';
+import 'package:get/get.dart';
+import 'package:myapp/components/btn_component.dart';
+
+import 'package:myapp/pages/main/profile/edit/controller.dart';
 
 class EditProfilePage extends StatelessWidget {
   const EditProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UpdateProfileController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Profile'),
@@ -15,20 +20,91 @@ class EditProfilePage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),
         children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: SizedBox(
-                width: double.infinity,
-                height: 180,
-                child: ImageNetworkComponent(
-                  url: "https://placehold.co/400x300.png?text=Banner",
+          // Name TextField
+          TextField(
+            onChanged: (value) => controller.name.value = value,
+            controller: controller.nameCtr,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.grey[200],
+              hintText: 'Nama Lengkap',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              ),
+            ),
+            style: TextStyle(
+              fontWeight: FontWeight.bold, // Make the text bold
+            ),
+          ),
+          SizedBox(height: 20),
+
+          // Email TextField
+          TextField(
+            onChanged: (value) => controller.email.value = value,
+            controller: controller.emailCtr,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.grey[200],
+              hintText: 'Email',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              ),
+            ),
+            style: TextStyle(
+              fontWeight: FontWeight.bold, // Make the text bold
+            ),
+          ),
+          SizedBox(height: 20),
+
+          // Gender Dropdown
+          Obx(
+            () => DropdownButtonFormField<String>(
+              value: controller.gender.value,
+              items:
+                  controller.genderOptions.map((item) {
+                    return DropdownMenuItem(value: item, child: Text(item));
+                  }).toList(),
+              onChanged: (value) => controller.gender.value = value!,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[200],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
                 ),
               ),
             ),
           ),
+          SizedBox(height: 20),
+
+          // Province Dropdown
+          Obx(
+            () => DropdownButtonFormField<String>(
+              value: controller.province.value,
+              items:
+                  controller.provinceOptions.map((item) {
+                    return DropdownMenuItem(value: item, child: Text(item));
+                  }).toList(),
+              onChanged: (value) => controller.province.value = value!,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[200],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 24),
         ],
+      ),
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        margin: EdgeInsets.all(20),
+        child: BtnComponent(text: 'Submit', onPressed: () {}),
       ),
     );
   }

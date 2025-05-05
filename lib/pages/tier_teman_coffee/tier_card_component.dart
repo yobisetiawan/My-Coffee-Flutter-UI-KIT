@@ -17,11 +17,6 @@ class TierCardComponent extends StatelessWidget {
           color: Colors.white, // border color
           width: 3, // border width
         ),
-        image: DecorationImage(
-          image: AssetImage('assets/images/bg/bg1.png'),
-          repeat: ImageRepeat.repeat, // Repeat the background image
-          fit: BoxFit.none, // Prevent scaling of the image
-        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: .2), // shadow color
@@ -30,6 +25,12 @@ class TierCardComponent extends StatelessWidget {
             offset: Offset(0, 3), // changes position of shadow: (x, y)
           ),
         ],
+        image: DecorationImage(
+          image: AssetImage('assets/images/bg/bg1.png'),
+          repeat: ImageRepeat.repeat, // Repeat the background image
+          fit: BoxFit.none, // Prevent scaling of the image
+        ),
+        
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

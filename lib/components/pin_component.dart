@@ -19,6 +19,7 @@ class PinComponentState extends State<PinComponent> {
 
     if (_input.length == 6) {
       final pin = _input.join(); // Combine the list into a single string
+      // ignore: avoid_print
       print("The pin is => $pin");
     }
   }
