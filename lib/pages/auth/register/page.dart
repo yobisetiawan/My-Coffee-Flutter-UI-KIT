@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/config/app_color.dart';
-import 'package:myapp/controllers/logo_component.dart';
+import 'package:myapp/components/logo_component.dart';
 import 'package:myapp/pages/main/page.dart';
 import 'controller.dart';
 import 'package:myapp/routes.dart';

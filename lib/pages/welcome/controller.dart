@@ -10,7 +10,7 @@ class WelcomeController extends GetxController {
   }
 
   void goTo() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       Get.offAll(
         () => OnboardingPage(), // Use the target page widget
         routeName: AppRoutes.onboarding, // Optional: Specify the route name
