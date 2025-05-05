@@ -30,7 +30,6 @@ class TierCardComponent extends StatelessWidget {
           repeat: ImageRepeat.repeat, // Repeat the background image
           fit: BoxFit.none, // Prevent scaling of the image
         ),
-        
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -95,7 +94,7 @@ class TierCardComponent extends StatelessWidget {
           SizedBox(height: 20),
 
           Container(
-            width: 250,
+            width: 200,
             height: 8,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -105,9 +104,11 @@ class TierCardComponent extends StatelessWidget {
           SizedBox(height: 10),
           Row(
             children: [
-              Text(
-                "20.000 points till yout next tier",
-                style: TextStyle(color: Colors.white),
+              Expanded(
+                child: Text(
+                  "20.000 points till yout next tier",
+                  style: TextStyle(color: Colors.white, fontSize: 11),
+                ),
               ),
               SizedBox(width: 5),
               GestureDetector(
@@ -116,7 +117,7 @@ class TierCardComponent extends StatelessWidget {
                 },
                 child: Text(
                   'view detail >',
-                  style: TextStyle(color: AppColor.primary),
+                  style: TextStyle(color: AppColor.primary, fontSize: 11),
                 ),
               ),
             ],

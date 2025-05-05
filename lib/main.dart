@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My Coffee',
-      initialRoute: AppRoutes.welcome, // Use the route constants
-      getPages: AppPages.pages, // Use the separated GetPages
-      translations: AppTranslations(), // Your translations
-      locale: Locale('id', 'ID'), // Default locale
-      fallbackLocale: Locale('en', 'US'), // Fallback locale
+      initialRoute: AppRoutes.welcome,
+      getPages: AppPages.pages,
+      translations: AppTranslations(),
+      locale: Locale('id', 'ID'),
+      fallbackLocale: Locale('en', 'US'),
       defaultTransition: Transition.rightToLeft,
     );
   }
