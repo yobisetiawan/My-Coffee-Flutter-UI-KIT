@@ -6,6 +6,7 @@ import 'package:myapp/pages/main/home/page.dart';
 import 'package:myapp/pages/main/order_history/page.dart';
 import 'package:myapp/pages/main/profile/page.dart';
 import 'package:myapp/pages/main/voucher/page.dart';
+import 'package:myapp/routes.dart';
 import 'controller.dart';
 
 class MainPage extends StatelessWidget {
@@ -103,7 +104,9 @@ class MainPage extends StatelessWidget {
                   top: 0,
                   left: MediaQuery.of(context).size.width / 2 - 30,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppRoutes.scanQR);
+                    },
                     child: Container(
                       width: 60,
                       height: 60,

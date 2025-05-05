@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myapp/components/back_btn_component.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/components/image_network_component.dart';
@@ -8,6 +9,9 @@ class NewsDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> args = Get.arguments;
+    final String imageUrl = args['imageUrl'];
+    
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -20,10 +24,7 @@ class NewsDetailPage extends StatelessWidget {
                   SizedBox(
                     height: 250,
                     width: double.infinity,
-                    child: ImageNetworkComponent(
-                      url:
-                          "https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    ),
+                    child: ImageNetworkComponent(url: imageUrl),
                   ),
                   Container(
                     margin: EdgeInsets.all(20),

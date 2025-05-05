@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:myapp/components/back_btn_component.dart';
-import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/components/image_network_component.dart';
 import 'package:myapp/components/numbered_list_component.dart';
-import 'package:myapp/config/app_color.dart';
+import 'package:myapp/components/voucer_card_component.dart';
 
-class RedeemDetailsPage extends StatelessWidget {
-  const RedeemDetailsPage({super.key});
+class VoucherDetailsPage extends StatelessWidget {
+  const VoucherDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, dynamic> args = Get.arguments;
-    final String imageUrl = args['imageUrl'];
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -26,7 +21,10 @@ class RedeemDetailsPage extends StatelessWidget {
                   SizedBox(
                     height: 250,
                     width: double.infinity,
-                    child: ImageNetworkComponent(url: imageUrl),
+                    child: ImageNetworkComponent(
+                      url:
+                          "https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.all(20),
@@ -34,45 +32,23 @@ class RedeemDetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Voucher Unduh Aplikasi, Dapat Kopi Gratis!',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                  Text(
-                                    'Untuk kamu yang pertama kali unduh aplikasi My Coffee, bisa langsung ngopi loh! Pilihannya ada Kopi Tagu, Kopi Klepon, atau Kopi Kingkit ',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(width: 30),
-                            Row(
-                              children: [
-                                Text(
-                                  '1',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColor.primary,
-                                  ),
-                                ),
-                                SizedBox(width: 5),
-                                Text('point', style: TextStyle(fontSize: 16)),
-                              ],
-                            ),
-                          ],
+                        Text(
+                          'Voucher Unduh Aplikasi, Dapat Kopi Gratis!',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Untuk kamu yang pertama kali unduh aplikasi My Coffee, bisa langsung ngopi loh! Pilihannya ada Kopi Tagu, Kopi Klepon, atau Kopi Kingkit ',
+                          style: TextStyle(fontSize: 16),
                         ),
                         SizedBox(height: 30),
-
+                        Text('Voucher Code'),
+                        SizedBox(height: 10),
+                        VoucerCardComponent(text: '8DSJ23'),
+                        SizedBox(height: 30),
                         Text('Berakhir Dalam'),
                         SizedBox(height: 10),
                         Container(
@@ -82,17 +58,6 @@ class RedeemDetailsPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text('17 Agustus 2025'),
-                        ),
-                        SizedBox(height: 30),
-                        Text('Stock'),
-                        SizedBox(height: 10),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text('50'),
                         ),
                       ],
                     ),
@@ -120,8 +85,8 @@ class RedeemDetailsPage extends StatelessWidget {
                           margin: EdgeInsets.only(left: 30),
                           child: NumberedListComponent(
                             strings: [
-                              'Sudah mendaftar sebagai member MyCoffee Coffee melalui aplikasi MyCoffee Coffee',
-                              'Dapat digunakan di seluruh store MyCoffee Coffee',
+                              'Sudah mendaftar sebagai member My Coffee melalui aplikasi My Coffee',
+                              'Dapat digunakan di seluruh store My Coffee',
                             ],
                           ),
                         ),
@@ -148,7 +113,7 @@ class RedeemDetailsPage extends StatelessWidget {
                           child: NumberedListComponent(
                             strings: [
                               'Sudah mendaftar sebagai member My Coffee melalui aplikasi My Coffee',
-                              'Dapat digunakan di seluruh store My Coffee',
+                              'Dapat digunakan di seluruh store My Coffee ',
                             ],
                           ),
                         ),
@@ -167,10 +132,6 @@ class RedeemDetailsPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.all(20),
-        child: BtnComponent(text: 'Reedem', onPressed: () {}),
       ),
     );
   }

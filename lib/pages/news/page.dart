@@ -29,7 +29,10 @@ class NewsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Get.toNamed(AppRoutes.newsDetails);
+              Get.toNamed(
+                AppRoutes.newsDetails,
+                arguments: {'imageUrl': images[index]},
+              );
             },
             child: Container(
               margin: EdgeInsets.only(bottom: 20),

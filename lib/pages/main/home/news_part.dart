@@ -29,7 +29,10 @@ class NewsPart extends StatelessWidget {
                   ), // Add space between images
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRoutes.newsDetails);
+                      Get.toNamed(
+                        AppRoutes.newsDetails,
+                        arguments: {'imageUrl': ctx.images[index]},
+                      );
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),

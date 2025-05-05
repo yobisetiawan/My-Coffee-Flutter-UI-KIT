@@ -3,7 +3,8 @@ import 'package:myapp/components/image_network_component.dart';
 import 'package:myapp/config/app_color.dart';
 
 class RedeemCardComponent extends StatelessWidget {
-  const RedeemCardComponent({super.key});
+  final String imageUrl;
+  const RedeemCardComponent({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +37,7 @@ class RedeemCardComponent extends StatelessWidget {
             child: SizedBox(
               height: 150,
               width: double.infinity,
-              child: ImageNetworkComponent(
-                url:
-                    "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              ),
+              child: ImageNetworkComponent(url: imageUrl),
             ),
           ),
           Padding(

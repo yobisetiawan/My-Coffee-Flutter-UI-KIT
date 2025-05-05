@@ -4,6 +4,8 @@ import 'package:myapp/pages/first_banner/page.dart';
 import 'package:myapp/pages/main/profile/edit/page.dart';
 import 'package:myapp/pages/main/profile/edit_pin/page.dart';
 import 'package:myapp/pages/main/profile/refferall/page.dart';
+import 'package:myapp/pages/main/voucher/my_voucher/details/page.dart';
+import 'package:myapp/pages/main/voucher/redeem_voucher/details/page.dart';
 import 'package:myapp/pages/membership_tier/page.dart';
 import 'package:myapp/pages/news/details/page.dart';
 import 'package:myapp/pages/news/page.dart';
@@ -12,6 +14,7 @@ import 'package:myapp/pages/notifications/page.dart';
 import 'package:myapp/pages/onboarding/allow_location_page.dart';
 import 'package:myapp/pages/onboarding/allow_notification_page.dart';
 import 'package:myapp/pages/onboarding/page.dart';
+import 'package:myapp/pages/scan_qr/page.dart';
 import 'package:myapp/pages/tier_teman_coffee/page.dart';
 import 'package:myapp/pages/tier_teman_coffee/point_history/page.dart';
 import 'pages/welcome/page.dart';
@@ -35,6 +38,9 @@ class AppRoutes {
   static const membershipTier = '/membership-tier';
   static const tierTemanCoffeePage = '/tier-teman-coffee';
   static const pointHistory = '/point-history';
+  static const reedemDetails = '/reedem-details';
+  static const voucherDetails = '/voucher-details';
+  static const scanQR = '/scan-qr';
 }
 
 class AppPages {
@@ -74,5 +80,14 @@ class AppPages {
     ),
     GetPage(name: AppRoutes.pointHistory, page: () => const PointHistoryPage()),
     GetPage(name: AppRoutes.newsDetails, page: () => const NewsDetailPage()),
+    GetPage(
+      name: AppRoutes.reedemDetails,
+      page: () => const RedeemDetailsPage(),
+    ),
+    GetPage(
+      name: AppRoutes.voucherDetails,
+      page: () => const VoucherDetailsPage(),
+    ),
+    GetPage(name: AppRoutes.scanQR, page: () => const ScanQRPage()),
   ];
 }
