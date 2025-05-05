@@ -1,4 +1,4 @@
-# My Coffee App UI KIT
+# My Coffee Flutter App UI KIT
 
 This project is a starting point for a Flutter application.
 
