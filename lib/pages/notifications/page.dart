@@ -12,6 +12,7 @@ class NotificationPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Notifications'),
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
       ),
       body: ListView(
         children: [

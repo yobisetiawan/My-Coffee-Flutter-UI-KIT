@@ -11,6 +11,7 @@ class TierTemanCoffeePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Tier Teman MyCoffee'),
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),

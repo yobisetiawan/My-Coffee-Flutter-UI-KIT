@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/data_empty_component.dart';
-import 'package:myapp/components/image_network_component.dart';
 import 'package:myapp/config/app_color.dart';
 import 'package:myapp/pages/main/home/news_part.dart';
 import 'package:myapp/routes.dart';

@@ -10,6 +10,7 @@ class PointHistoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Point History'),
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),

@@ -8,8 +8,10 @@ class HomeController extends GetxController {
     'https://images.unsplash.com/photo-1640525330110-131573ab5b9d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://plus.unsplash.com/premium_photo-1673107240868-4757350fcde2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://placehold.co/400x300.png?text=Banner4',
-    'https://placehold.co/400x300.png?text=Banner5',
+    'https://images.unsplash.com/photo-1496582490020-60c1344c64aa?q=80&w=2081&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1507914372368-b2b085b925a1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1556740767-414a9c4860c1?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   ];
 
   late final PageController pageController;
@@ -24,7 +26,7 @@ class HomeController extends GetxController {
 
   void onPageChanged(int index) {
     currentPage.value = index; // Update the current page index
-     _restartAutoPlay();
+    _restartAutoPlay();
   }
 
   void _startAutoPlay() {
@@ -41,12 +43,10 @@ class HomeController extends GetxController {
     });
   }
 
-
   void _restartAutoPlay() {
     _timer?.cancel(); // Cancel the current timer
     _startAutoPlay(); // Restart the timer
   }
- 
 
   @override
   void onClose() {
