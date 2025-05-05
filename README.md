@@ -3,4 +3,4 @@
 This project is a starting point for a Flutter application.
 
 ## Preview
-![Preview](assets/images/preview/preview1.jpg)
+![Preview](assets/images/preview/preview01.jpg)
