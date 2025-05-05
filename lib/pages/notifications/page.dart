@@ -9,20 +9,21 @@ class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Notifications')),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            NotifItemComponent(
-              onTap: () {
-                Get.toNamed(AppRoutes.notificationDetails);
-              },
-              title: 'Selamat Anda mendapatkan Voucher',
-              description: 'Vouncher Unduh Aplikasi, Dapat Kopi Gratis! adalah',
-              date: '8 hari yang lalu - 24 Apr 2025',
-            ),
-          ],
-        ),
+      appBar: AppBar(
+        title: Text('Notifications'),
+        backgroundColor: Colors.white,
+      ),
+      body: ListView(
+        children: [
+          NotifItemComponent(
+            onTap: () {
+              Get.toNamed(AppRoutes.notificationDetails);
+            },
+            title: 'Selamat Anda mendapatkan Voucher',
+            description: 'Vouncher Unduh Aplikasi, Dapat Kopi Gratis! adalah',
+            date: '8 hari yang lalu - 24 Apr 2025',
+          ),
+        ],
       ),
     );
   }

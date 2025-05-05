@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/image_network_component.dart';
+import 'package:myapp/components/data_empty_component.dart';
+import 'tier_card_component.dart';
 
 class TierTemanCoffeePage extends StatelessWidget {
   const TierTemanCoffeePage({super.key});
@@ -7,39 +8,33 @@ class TierTemanCoffeePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tier Teman MyCoffee')),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 180,
-                  child: ImageNetworkComponent(
-                    url: "https://placehold.co/400x300.png?text=Banner",
-                  ),
+      appBar: AppBar(
+        title: Text('Tier Teman MyCoffee'),
+        backgroundColor: Colors.white,
+      ),
+      body: ListView(
+        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+        children: [
+          TierCardComponent(),
+          SizedBox(height: 30),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey.shade300),
                 ),
+                child: Text('History Voucher'),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 180,
-                  child: ImageNetworkComponent(
-                    url: "https://placehold.co/400x300.png?text=Banner",
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+            ],
+          ),
+          SizedBox(height: 20),
+          DataEmptyComponent(),
+        ],
       ),
     );
   }

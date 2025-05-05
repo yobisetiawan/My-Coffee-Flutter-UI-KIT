@@ -9,7 +9,7 @@ class EditPinPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bg,
-      appBar: AppBar(title: Text('Edit PIN'), backgroundColor: AppColor.bg),
+      appBar: AppBar(title: Text('Edit PIN'), backgroundColor: Colors.white),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
