@@ -88,7 +88,9 @@ class ProfilePage extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: BtnComponent(
                           text: 'Logout',
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.offAllNamed(AppRoutes.register);
+                          },
                           color: AppColor.danger,
                           textColor: Colors.white,
                         ),

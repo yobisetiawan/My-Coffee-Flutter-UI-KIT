@@ -29,8 +29,18 @@ class MainPage extends StatelessWidget {
       body: Stack(
         children: [
           // AnimatedSwitcher for smooth transitions
-          Obx(
-            () => AnimatedSwitcher(
+          Obx(() {
+            if (ctx.prepareLoad.value) {
+              return Center(
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(color: AppColor.primary),
+                ),
+              );
+            }
+
+            return AnimatedSwitcher(
               duration: const Duration(milliseconds: 200), // Animation duration
               transitionBuilder: (child, animation) {
                 return FadeTransition(
@@ -39,8 +49,8 @@ class MainPage extends StatelessWidget {
                 );
               },
               child: pages[ctx.activeMenu.value] ?? const HomePage(),
-            ),
-          ),
+            );
+          }),
           Positioned(
             bottom: 0,
             left: 0,

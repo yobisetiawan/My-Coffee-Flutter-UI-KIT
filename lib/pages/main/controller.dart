@@ -2,9 +2,22 @@ import 'package:get/get.dart';
 
 class MainController extends GetxController {
   RxString activeMenu = "home".obs;
+  RxBool prepareLoad = true.obs;
 
-  // Method to update the active menu
+  @override
+  void onInit() {
+    serPrepared();
+
+    super.onInit();
+  }
+
   void setActiveMenu(String menu) {
     activeMenu.value = menu;
+  }
+
+  void serPrepared() {
+    Future.delayed(Duration(seconds: 1), () {
+      prepareLoad.value = false;
+    });
   }
 }
