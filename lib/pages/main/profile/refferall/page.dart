@@ -39,7 +39,6 @@ class RefferalPage extends StatelessWidget {
               try {
                 await SharePlus.instance.share(ShareParams(text: '8DSJ23'));
               } catch (e) {
-                print(e);
                 Get.snackbar('Ups', "Something went wrong!");
               }
             },
