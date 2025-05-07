@@ -55,16 +55,15 @@ class RegisterPage extends StatelessWidget {
                     width: double.infinity,
                     child: Obx(
                       () => BtnComponent(
-                        text: 'Sign in / Daftar',
+                        text:
+                            controller.isLoading.value
+                                ? 'Loading'
+                                : 'Sign in / Daftar',
                         onPressed:
-                            controller.isButtonEnabled.value
-                                ? () {
-                                  Get.offAll(
-                                    () => MainPage(),
-                                    routeName: AppRoutes.main,
-                                    transition: Transition.rightToLeft,
-                                    duration: Duration(milliseconds: 600),
-                                  );
+                            controller.isButtonEnabled.value &&
+                                    !controller.isLoading.value
+                                ? () async {
+                                  await controller.onSubmit();
                                 }
                                 : null,
                       ),

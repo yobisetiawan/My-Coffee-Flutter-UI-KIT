@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/components/voucer_card_component.dart';
+import 'package:share_plus/share_plus.dart';
 
 class RefferalPage extends StatelessWidget {
   const RefferalPage({super.key});
@@ -31,7 +33,17 @@ class RefferalPage extends StatelessWidget {
             child: SvgPicture.asset('assets/images/svg/refferal.svg'),
           ),
           SizedBox(height: 20),
-          BtnComponent(text: 'Share Code', onPressed: () {}),
+          BtnComponent(
+            text: 'Share Code',
+            onPressed: () async {
+              try {
+                await SharePlus.instance.share(ShareParams(text: '8DSJ23'));
+              } catch (e) {
+                print(e);
+                Get.snackbar('Ups', "Something went wrong!");
+              }
+            },
+          ),
         ],
       ),
     );

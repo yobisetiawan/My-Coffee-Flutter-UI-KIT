@@ -13,6 +13,8 @@ class ScanQRPage extends StatelessWidget {
     final ctr = Get.put(ScanQRController());
 
     return Scaffold(
+      backgroundColor: Colors.black,
+      
       body: SafeArea(
         child: Obx(() {
           if (ctr.result.value != "") {

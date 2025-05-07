@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/config/app_color.dart';
-import 'package:myapp/pages/auth/register/page.dart';
-import 'package:myapp/routes.dart';
+import 'package:myapp/pages/onboarding/controller.dart';
 
 class AllowLocationPage extends StatelessWidget {
   const AllowLocationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ctr = Get.find<OnboardingController>();
+
     return Scaffold(
       backgroundColor: AppColor.bg,
       appBar: AppBar(
@@ -58,16 +59,16 @@ class AllowLocationPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            BtnComponent(
-              text: 'Continue',
-              onPressed: () {
-                Get.offAll(
-                  () => RegisterPage(),
-                  routeName: AppRoutes.register,
-                  transition: Transition.rightToLeft,
-                  duration: Duration(milliseconds: 600),
-                );
-              },
+            Obx(
+              () => BtnComponent(
+                text: ctr.isLoadingLoc.value ? 'Loading' : 'Continue',
+                onPressed:
+                    ctr.isLoadingLoc.value
+                        ? null
+                        : () async {
+                          await ctr.requestLocationPermission();
+                        },
+              ),
             ),
           ],
         ),

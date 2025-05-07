@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/btn_component.dart';
 import 'package:myapp/config/app_color.dart';
-import 'package:myapp/routes.dart';
+import 'controller.dart';
 
 class AllowNotificationPage extends StatelessWidget {
   const AllowNotificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ctr = Get.find<OnboardingController>();
     return Scaffold(
       backgroundColor: AppColor.bg,
       appBar: AppBar(
@@ -58,11 +59,16 @@ class AllowNotificationPage extends StatelessWidget {
             ),
 
             SizedBox(height: 30),
-            BtnComponent(
-              text: 'Continue',
-              onPressed: () {
-                Get.toNamed(AppRoutes.allowLocation);
-              },
+            Obx(
+              () => BtnComponent(
+                text: ctr.isLoadingNotif.value ? 'Loading' : 'Continue',
+                onPressed:
+                    ctr.isLoadingNotif.value
+                        ? null
+                        : () async {
+                          await ctr.requestNotificationPermission();
+                        },
+              ),
             ),
           ],
         ),

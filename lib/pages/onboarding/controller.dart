@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/auth/register/page.dart';
 import 'package:myapp/routes.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SliderModel {
   String image;
@@ -17,6 +19,8 @@ class SliderModel {
 class OnboardingController extends GetxController {
   final PageController pageController = PageController();
   var currentPage = 0.obs;
+  var isLoadingNotif = false.obs;
+  var isLoadingLoc = false.obs;
 
   final List<SliderModel> slides = [
     SliderModel(
@@ -53,5 +57,55 @@ class OnboardingController extends GetxController {
   void onClose() {
     pageController.dispose();
     super.onClose();
+  }
+
+  Future<void> requestNotificationPermission() async {
+    isLoadingNotif.value = true;
+
+    var status = await Permission.notification.status;
+
+    if (status.isDenied || status.isPermanentlyDenied) {
+      // Request permission
+      final result = await Permission.notification.request();
+
+      if (result.isGranted) {
+        print("Notification permission granted.");
+      } else {
+        print("Notification permission denied.");
+      }
+    } else {
+      print("Notification permission already granted.");
+    }
+
+    Future.delayed(Duration(seconds: 1), () {
+      Get.toNamed(AppRoutes.allowLocation);
+    });
+  }
+
+  Future<void> requestLocationPermission() async {
+    isLoadingLoc.value = true;
+    var status = await Permission.location.status;
+
+    if (status.isDenied || status.isPermanentlyDenied) {
+      // Request permission
+      final result = await Permission.location.request();
+
+      if (result.isGranted) {
+        print("Location permission granted.");
+      } else {
+        print("Location permission denied.");
+      }
+    } else {
+      print("Location permission already granted.");
+    }
+
+    Future.delayed(Duration(seconds: 1), () {
+      Get.offAll(
+        () => RegisterPage(),
+        routeName: AppRoutes.register,
+        transition: Transition.rightToLeft,
+        duration: Duration(milliseconds: 600),
+      );
+    });
   }
 }
