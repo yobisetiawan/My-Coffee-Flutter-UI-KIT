@@ -14,32 +14,37 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeController());
+    final ctr = Get.put(HomeController());
+    
     return SafeArea(
       child: Container(
         color: AppColor.bg,
         height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 15),
-              TopHeaderPart(),
-              SizedBox(height: 5),
-              LoyaltyPart(),
-              SizedBox(height: 30),
-              TitlePart(
-                title: 'Berita Terbaru',
-                onTap: () {
-                  Get.toNamed(AppRoutes.news);
-                },
-              ),
-              SizedBox(height: 10),
-              NewsPart(),
-              SizedBox(height: 30),
-              TitlePart(title: 'Last Order'),
-              DataEmptyComponent(),
-              SizedBox(height: 140),
-            ],
+        child: RefreshIndicator(
+          color: AppColor.primary,
+          onRefresh: ctr.refreshData,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 15),
+                TopHeaderPart(),
+                SizedBox(height: 5),
+                LoyaltyPart(),
+                SizedBox(height: 30),
+                TitlePart(
+                  title: 'Berita Terbaru',
+                  onTap: () {
+                    Get.toNamed(AppRoutes.news);
+                  },
+                ),
+                SizedBox(height: 10),
+                NewsPart(),
+                SizedBox(height: 30),
+                TitlePart(title: 'Last Order'),
+                DataEmptyComponent(),
+                SizedBox(height: 140),
+              ],
+            ),
           ),
         ),
       ),
